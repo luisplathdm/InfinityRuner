@@ -8,18 +8,18 @@
     <Grid>
         <HorizontalStackLayout x:Name="HSLayerOne">
 
-            <Image Source="planodefundo.png"
+            <Image Source="fundao.avif"
                    VerticalOptions="StartAndExpand"
                    Opacity="0.25"
                    Aspect="AspectFill"/>
            
-            <Image Source="planodefundo.png"
+            <Image Source="fundao.avif"
                    Opacity="0.25"
                    VerticalOptions="StartAndExpand"
                    Aspect="AspectFill"/>
            
-            <Image Source="planodefundo.png"
-                    Opacity="0.25"
+            <Image Source="fundao.avif"
+                   
                    VerticalOptions="StartAndExpand"
                    Aspect="AspectFill"/>
 
@@ -28,13 +28,13 @@
         <HorizontalStackLayout x:Name="HSLayerTwo">
 
             
-            <Image Source="arvorescertas.png"
+            <Image Source="arvores2.png"
                    VerticalOptions="FillAndExpand"/>
            
-            <Image Source="arvorescertas.png"
+            <Image Source="arvores2.png"
                    VerticalOptions="FillAndExpand"/>
            
-            <Image Source="arvorescertas.png"
+            <Image Source="arvores2.png"
                    VerticalOptions="FillAndExpand"/>
 
         </HorizontalStackLayout>
