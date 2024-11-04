@@ -7,6 +7,7 @@ public partial class MainPage : ContentPage
 
 	bool Isdead = false;
 	// se está morto
+
 	bool Isjumping = false;
 	//se está pulando
 
@@ -42,35 +43,91 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-//------------------------------------------------------------------------//
-	Initializer()
-	{
 
-	}
-//------------------------------------------------------------------------//
-    protected override void OnSizeAllocated(double w, double h)
-    {
-        base.OnSizeAllocated(w, h);
-		FixScreenSize(w, h);
-		calculateSpeed(w);
-    }
+
 	//------------------------------------------------------------------------//
 
-	void FixScreenSize (double w, double h)
+
+
+	//------------------------------------------------------------------------//
+	protected override void OnSizeAllocated(double w, double h)
+	{
+		base.OnSizeAllocated(w, h);
+		FixScreenSize(w, h);
+		CalculateSpeed(w);
+	}
+	//------------------------------------------------------------------------//
+
+	void FixScreenSize(double w, double h)
 	{
 		foreach (var A in HSLayerOne.Children)
-		(A as Image).WidthRequest = w;
+			(A as Image).WidthRequest = w;
 		foreach (var A in HSLayerTwo.Children)
-		(A as Image).WidthRequest = w;
-		foreach (var A in HSLayerTree.Children)
-		(A as Image).WidthRequest = w;
+			(A as Image).WidthRequest = w;
+		foreach (var A in HSLayerThree.Children)
+			(A as Image).WidthRequest = w;
 		foreach (var A in HSLayerPrimalfloor.Children)
-		(A as Image).WidthRequest = w;
-        
-		 HSLayerOne.WidthRequest = w * 1.5;
-		 HSLayerTwo.WidthRequest = w * 1.5;
-		 HSLayerTree.WidthRequest = w * 1.5;
-		 HSLayerPrimalfloor.WidthRequest = w * 1.5;
+			(A as Image).WidthRequest = w;
+
+		HSLayerOne.WidthRequest = w * 1.5;
+		HSLayerTwo.WidthRequest = w * 1.5;
+		HSLayerThree.WidthRequest = w * 1.5;
+		HSLayerPrimalfloor.WidthRequest = w * 1.5;
 	}
+
+	//------------------------------------------------------------------------//
+	void CalculateSpeed(double w)
+	{
+		SpeedOne = (int)(w * 0.001);
+		SpeedTwo = (int)(w * 0.004);
+		SpeedThree = (int)(w * 0.008);
+		PrimalFloorSpeed = (int)(w * 0.01);
+	}
+
+	//------------------------------------------------------------------------//
+	async Task Drawn()
+	{
+		while (!Isdead)
+		{
+			ManageScene();
+			await Task.Delay(TimeToFrame);
+		}
+	}
+
+	//------------------------------------------------------------------------//
+	void MoveScene()
+	{
+		HSLayerOne.TranslationX -= SpeedOne;
+		HSLayerTwo.TranslationX -= SpeedTwo;
+		HSLayerThree.TranslationX -= SpeedThree;
+		HSLayerPrimalfloor.TranslationX -= SpeedPrimalfloor;
+	}
+
+	//------------------------------------------------------------------------//
+	void ManageScenes()
+	{
+		MoveScene();
+		ManageScene(HSLayerOne);
+		ManageScene(HSLayerTwo);
+		ManageScene(HSLayerThree);
+		ManageScene(HSLayerPrimalfloor);
+	}
+
+
+	//------------------------------------------------------------------------//
+
+	void ManageScene(HorizontalStackLayout HSL)
+	{
+		var view = (HSL.Children.First() as Image);
+		if (view.WidthRequest + HSL.TranslationX < 0)
+		{
+			HSL.Children.Remove(view);
+			HSL.Children.Add(view);
+			HSL.TranslationX = view.TranslationX;
+		}
+	}
+
+
+	//------------------------------------------------------------------------//
 }
 

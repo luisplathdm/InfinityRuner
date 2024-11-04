@@ -4,15 +4,71 @@
              x:Class="InfinityRuner.MainPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="AntiqueWhite">
-    
+
     <Grid>
-       <Image x:Name="FundoOpacidadeAlta"/>
-        <Image x:Name="FundoOpacidadeMedia"/>
-         <Image x:Name="FundoSemOpacidade"/>
-          <Image x:Name="Chao"
-          Source="fundocerto.png"
-          VerticalOptions="EndAndExpand"
-          HorizontalOptions="CenterAndExpand"/>
+        <HorizontalStackLayout x:Name="HSLayerOne">
+
+            <Image Source="planodefundo.png"
+                   VerticalOptions="StartAndExpand"
+                   Opacity="1"
+                   Aspect="AspectFill"/>
+           
+            <Image Source="planodefundo.png"
+                   Opacity="1"
+                   VerticalOptions="StartAndExpand"
+                   Aspect="AspectFill"/>
+           
+            <Image Source="planodefundo.png"
+                   Opacity="1"
+                   VerticalOptions="StartAndExpand"
+                   Aspect="AspectFill"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout x:Name="HSLayerTwo">
+
+            
+            <Image Source="arvorescertas.png"
+                   VerticalOptions="FillAndExpand"/>
+           
+            <Image Source="arvorescertas.png"
+                   VerticalOptions="FillAndExpand"/>
+           
+            <Image Source="arvorescertas.png"
+                   VerticalOptions="FillAndExpand"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout x:Name="HSLayerThree">
+
+            
+            <Image Source="fundo2.png"
+                   VerticalOptions="FillAndExpand"/>
+           
+            <Image Source="fundo2.png"
+                   VerticalOptions="FillAndExpand"/>
+           
+            <Image Source="fundo2.png"
+                   VerticalOptions="FillAndExpand"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
+
+          
+           <Image Source="fundocerto.png"
+                   VerticalOptions="EndAndExpand"
+                   Margin="0,50,0,0"/>
+            
+            <Image Source="fundocerto.png"
+                   VerticalOptions="EndAndExpand"
+                   Margin="0,50,0,0"/>
+            
+            <Image Source="fundocerto.png"
+                   VerticalOptions="EndAndExpand"
+                   Margin="0,50,0,0"/>
+
+        </HorizontalStackLayout>
     </Grid>
 
 </ContentPage>
