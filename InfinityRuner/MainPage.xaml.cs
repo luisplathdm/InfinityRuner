@@ -25,7 +25,7 @@ public partial class MainPage : ContentPage
 	int SpeedTwo = 0;
 	//velocidade da segunda camada
 
-	int SpeedTree = 0;
+	int SpeedThree = 0;
 	// velocidade da terceira camada
 
 	int PrimalFloorSpeed = 0;
@@ -55,6 +55,12 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		FixScreenSize(w, h);
 		CalculateSpeed(w);
+	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		Drawn();
 	}
 	//------------------------------------------------------------------------//
 
@@ -89,7 +95,7 @@ public partial class MainPage : ContentPage
 	{
 		while (!Isdead)
 		{
-			ManageScene();
+			ManageScenes();
 			await Task.Delay(TimeToFrame);
 		}
 	}
@@ -100,7 +106,7 @@ public partial class MainPage : ContentPage
 		HSLayerOne.TranslationX -= SpeedOne;
 		HSLayerTwo.TranslationX -= SpeedTwo;
 		HSLayerThree.TranslationX -= SpeedThree;
-		HSLayerPrimalfloor.TranslationX -= SpeedPrimalfloor;
+		HSLayerPrimalfloor.TranslationX -= PrimalFloorSpeed;
 	}
 
 	//------------------------------------------------------------------------//
