@@ -19,15 +19,11 @@
                    Aspect="AspectFill"/>
            
             <Image Source="fundao.avif"
-                   
                    VerticalOptions="StartAndExpand"
                    Aspect="AspectFill"/>
-
         </HorizontalStackLayout>
 
         <HorizontalStackLayout x:Name="HSLayerTwo">
-
-            
             <Image Source="arvores2.png"
                    VerticalOptions="FillAndExpand"/>
            

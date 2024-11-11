@@ -44,12 +44,8 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-
 	//------------------------------------------------------------------------//
 
-
-
-	//------------------------------------------------------------------------//
 	protected override void OnSizeAllocated(double w, double h)
 	{
 		base.OnSizeAllocated(w, h);
@@ -62,6 +58,7 @@ public partial class MainPage : ContentPage
 		base.OnAppearing();
 		Drawn();
 	}
+
 	//------------------------------------------------------------------------//
 
 	void FixScreenSize(double w, double h)
