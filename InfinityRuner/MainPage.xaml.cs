@@ -1,4 +1,6 @@
-﻿namespace InfinityRuner;
+﻿using InfinityRunner;
+
+namespace InfinityRuner;
 
 public partial class MainPage : ContentPage
 {
@@ -37,11 +39,15 @@ public partial class MainPage : ContentPage
 	int WindowWidth = 0;
 	//largura da janela
 
+	Jogador jogador;
+
 	//------------------------------------------------------------------------//
 
 	public MainPage()
 	{
 		InitializeComponent();
+		jogador= new Jogador(imgJogador);
+		jogador.Run();
 	}
 
 	//------------------------------------------------------------------------//
@@ -56,21 +62,27 @@ public partial class MainPage : ContentPage
 	protected override void OnAppearing()
 	{
 		base.OnAppearing();
-		Drawn();
+		Desenhar();
+		jogador.Drawn();
+		//Aqui é oque faz o cenarrio e talvz
+		//o personagem apaeceranddno
 	}
 
 	//------------------------------------------------------------------------//
 
 	void FixScreenSize(double w, double h)
 	{
-		foreach (var A in HSLayerOne.Children)
-			(A as Image).WidthRequest = w;
-		foreach (var A in HSLayerTwo.Children)
-			(A as Image).WidthRequest = w;
-		foreach (var A in HSLayerThree.Children)
-			(A as Image).WidthRequest = w;
-		foreach (var A in HSLayerPrimalfloor.Children)
-			(A as Image).WidthRequest = w;
+		foreach (var LayerOne in HSLayerOne.Children)
+			(LayerOne as Image).WidthRequest = w;
+		
+		foreach (var Layertwo in HSLayerTwo.Children)
+			(Layertwo as Image).WidthRequest = w;
+		
+		foreach (var ALayerthre in HSLayerThree.Children)
+			(ALayerthre as Image).WidthRequest = w;
+		
+		foreach (var LayerDoChão in HSLayerPrimalfloor.Children)
+			(LayerDoChão as Image).WidthRequest = w;
 
 		HSLayerOne.WidthRequest = w * 1.5;
 		HSLayerTwo.WidthRequest = w * 1.5;
@@ -85,10 +97,11 @@ public partial class MainPage : ContentPage
 		SpeedTwo = (int)(w * 0.004);
 		SpeedThree = (int)(w * 0.008);
 		PrimalFloorSpeed = (int)(w * 0.01);
+		CharacterSpeed = (int) (width * 0.012);
 	}
 
 	//------------------------------------------------------------------------//
-	async Task Drawn()
+	async Task Desenhar()
 	{
 		while (!Isdead)
 		{
@@ -104,6 +117,7 @@ public partial class MainPage : ContentPage
 		HSLayerTwo.TranslationX -= SpeedTwo;
 		HSLayerThree.TranslationX -= SpeedThree;
 		HSLayerPrimalfloor.TranslationX -= PrimalFloorSpeed;
+		HSLayerPrimalfloor.TranslationX -= CharacterSpeed;
 	}
 
 	//------------------------------------------------------------------------//

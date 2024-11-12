@@ -5,66 +5,74 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="AntiqueWhite">
 
-    <Grid>
-        <HorizontalStackLayout x:Name="HSLayerOne">
+       <Grid>
+              <HorizontalStackLayout x:Name="HSLayerOne">
 
-            <Image Source="fundao.avif"
-                   VerticalOptions="StartAndExpand"
-                   Opacity="0.25"
-                   Aspect="AspectFill"/>   
+                     <Image Source="fundao.avif"
+                            VerticalOptions="StartAndExpand"
+                            Opacity="0.25"
+                            Aspect="AspectFill"/>
+
+                     <Image Source="fundao.avif"
+                            Opacity="0.25"
+                            VerticalOptions="StartAndExpand"
+                            Aspect="AspectFill"/>
+
+                     <Image Source="fundao.avif"
+                            VerticalOptions="StartAndExpand"
+                            Aspect="AspectFill"/>
+              </HorizontalStackLayout>
+
+              <HorizontalStackLayout x:Name="HSLayerTwo">
+                     <Image Source="arvores2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+                     <Image Source="arvores2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+                     <Image Source="arvores2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+              </HorizontalStackLayout>
+
+              <HorizontalStackLayout x:Name="HSLayerThree">
+
+
+                     <Image Source="fundo2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+                     <Image Source="fundo2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+                     <Image Source="fundo2.png"
+                            VerticalOptions="FillAndExpand"/>
+
+              </HorizontalStackLayout>
+
+              <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
+
+
+                     <Image Source="fundocerto.png"
+                            VerticalOptions="EndAndExpand"
+                            Margin="0,50,0,0"/>
+
+                     <Image Source="fundocerto.png"
+                            VerticalOptions="EndAndExpand"
+                            Margin="0,50,0,0"/>
+
+                     <Image Source="fundocerto.png"
+                            VerticalOptions="EndAndExpand"
+                            Margin="0,50,0,0"/>
+
+              </HorizontalStackLayout>
            
-            <Image Source="fundao.avif"
-                   Opacity="0.25"
-                   VerticalOptions="StartAndExpand"
-                   Aspect="AspectFill"/>
-           
-            <Image Source="fundao.avif"
-                   VerticalOptions="StartAndExpand"
-                   Aspect="AspectFill"/>
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout x:Name="HSLayerTwo">
-            <Image Source="arvores2.png"
-                   VerticalOptions="FillAndExpand"/>
-           
-            <Image Source="arvores2.png"
-                   VerticalOptions="FillAndExpand"/>
-           
-            <Image Source="arvores2.png"
-                   VerticalOptions="FillAndExpand"/>
-
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout x:Name="HSLayerThree">
-
-            
-            <Image Source="fundo2.png"
-                   VerticalOptions="FillAndExpand"/>
-           
-            <Image Source="fundo2.png"
-                   VerticalOptions="FillAndExpand"/>
-           
-            <Image Source="fundo2.png"
-                   VerticalOptions="FillAndExpand"/>
-
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
-
-          
-           <Image Source="fundocerto.png"
-                   VerticalOptions="EndAndExpand"
-                   Margin="0,50,0,0"/>
-            
-            <Image Source="fundocerto.png"
-                   VerticalOptions="EndAndExpand"
-                   Margin="0,50,0,0"/>
-            
-            <Image Source="fundocerto.png"
-                   VerticalOptions="EndAndExpand"
-                   Margin="0,50,0,0"/>
-
-        </HorizontalStackLayout>
-    </Grid>
+              <Image x:Name="imgJogador"
+                     VerticalOptions="End"
+                     Margin="0,0,0,75"
+                     HeightRequest="150"
+                     WidthRequest="150"
+                     HorizontalOptions="Start"
+                     Aspect="Fill"/>
+       </Grid>
 
 </ContentPage>
