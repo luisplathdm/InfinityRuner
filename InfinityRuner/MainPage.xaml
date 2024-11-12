@@ -1,78 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="InfinityRuner.MainPage"
-             Shell.NavBarIsVisible="False"
-             BackgroundColor="AntiqueWhite">
+<ContentPage
+    x:Class="InfinityRuner.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+    BackgroundColor="AntiqueWhite"
+    Shell.NavBarIsVisible="False">
 
-       <Grid>
-              <HorizontalStackLayout x:Name="HSLayerOne">
+    <Grid>
+        <HorizontalStackLayout x:Name="HSLayerOne">
+            <Image
+                Aspect="Fill"
+                Source="luanova.png"
+                VerticalOptions="StartAndExpand" />
 
-                     <Image Source="fundao.avif"
-                            VerticalOptions="StartAndExpand"
-                            Opacity="0.25"
-                            Aspect="AspectFill"/>
+            <Image
+                Aspect="Fill"
+                Source="luanova.png"
+                VerticalOptions="StartAndExpand" />
 
-                     <Image Source="fundao.avif"
-                            Opacity="0.25"
-                            VerticalOptions="StartAndExpand"
-                            Aspect="AspectFill"/>
+            <Image
+                Aspect="Fill"
+                Source="luanova.png"
+                VerticalOptions="StartAndExpand" />
+        </HorizontalStackLayout>
 
-                     <Image Source="fundao.avif"
-                            VerticalOptions="StartAndExpand"
-                            Aspect="AspectFill"/>
-              </HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="HSLayerTwo">
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-              <HorizontalStackLayout x:Name="HSLayerTwo">
-                     <Image Source="arvores2.png"
-                            VerticalOptions="FillAndExpand"/>
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-                     <Image Source="arvores2.png"
-                            VerticalOptions="FillAndExpand"/>
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-                     <Image Source="arvores2.png"
-                            VerticalOptions="FillAndExpand"/>
+        </HorizontalStackLayout>
 
-              </HorizontalStackLayout>
-
-              <HorizontalStackLayout x:Name="HSLayerThree">
-
-
-                     <Image Source="fundo2.png"
-                            VerticalOptions="FillAndExpand"/>
-
-                     <Image Source="fundo2.png"
-                            VerticalOptions="FillAndExpand"/>
-
-                     <Image Source="fundo2.png"
-                            VerticalOptions="FillAndExpand"/>
-
-              </HorizontalStackLayout>
-
-              <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
+        <HorizontalStackLayout x:Name="HSLayerThree">
 
 
-                     <Image Source="fundocerto.png"
-                            VerticalOptions="EndAndExpand"
-                            Margin="0,50,0,0"/>
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-                     <Image Source="fundocerto.png"
-                            VerticalOptions="EndAndExpand"
-                            Margin="0,50,0,0"/>
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-                     <Image Source="fundocerto.png"
-                            VerticalOptions="EndAndExpand"
-                            Margin="0,50,0,0"/>
+            <Image
+                Aspect="Fill"
+                Source="arvores2.png"
+                VerticalOptions="FillAndExpand" />
 
-              </HorizontalStackLayout>
-           
-              <Image x:Name="imgJogador"
-                     VerticalOptions="End"
-                     Margin="0,0,0,75"
-                     HeightRequest="150"
-                     WidthRequest="150"
-                     HorizontalOptions="Start"
-                     Aspect="Fill"/>
-       </Grid>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
+
+
+            <Image
+                Margin="0,400,0,0"
+                Aspect="Fill"
+                Source="fundocerto.png"
+                VerticalOptions="EndAndExpand" />
+
+            <Image
+                Margin="0,400,0,0"
+                Aspect="Fill"
+                Source="fundocerto.png"
+                VerticalOptions="EndAndExpand" />
+            <Image
+                Margin="0,400,0,0"
+                Aspect="Fill"
+                Source="fundocerto.png"
+                VerticalOptions="EndAndExpand" />
+
+        </HorizontalStackLayout>
+
+        <ffimageloading:CachedImageView
+            x:Name="imgJogador"
+            CacheDuration="365"
+            CacheType="All" />
+    </Grid>
 
 </ContentPage>

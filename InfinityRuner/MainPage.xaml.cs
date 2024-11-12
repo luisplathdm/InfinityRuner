@@ -38,8 +38,12 @@ public partial class MainPage : ContentPage
 
 	int WindowWidth = 0;
 	//largura da janela
-
+    
+	int CharacterSpeed = 0;
+	//velocidade do personagen que atualmente
+	//nem está aparecendo 
 	Jogador jogador;
+	//estou declarando para que de certo 
 
 	//------------------------------------------------------------------------//
 
@@ -97,7 +101,7 @@ public partial class MainPage : ContentPage
 		SpeedTwo = (int)(w * 0.004);
 		SpeedThree = (int)(w * 0.008);
 		PrimalFloorSpeed = (int)(w * 0.01);
-		CharacterSpeed = (int) (width * 0.012);
+		CharacterSpeed = (int) (w * 0.012);
 	}
 
 	//------------------------------------------------------------------------//

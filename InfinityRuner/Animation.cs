@@ -1,3 +1,5 @@
+using FFImageLoading.Maui;
+
 public class Animation
 {
     protected List<String> AnimationOne = new List<String>();
@@ -8,10 +10,11 @@ public class Animation
     protected int AnimationTadalla = 1;
     bool Brush = true;
     int MainFrame = 1;
-    protected Image compImagem;
-    public Animation(Image imagem)
+
+    protected CachedImageView ImageView;
+    public Animation(CachedImageView imagem)
     {
-        compImagem = imagem;
+        ImageView = imagem;
     }
     public void Stop()
     {
@@ -46,7 +49,7 @@ public class Animation
             NomeArquivo = AnimationThree[MainFrame];
             AnimationHeigth = AnimationThree.Count;
         }
-        compImagem.Source = ImageSource.FromFile(NomeArquivo);
+        ImageView.Source = ImageSource.FromFile(NomeArquivo);
         MainFrame++;
         if (MainFrame >= AnimationHeigth)
         {
