@@ -11,17 +11,17 @@
         <HorizontalStackLayout x:Name="HSLayerOne">
             <Image
                 Aspect="Fill"
-                Source="luanova.png"
+                Source="ceuzul.jpg"
                 VerticalOptions="StartAndExpand" />
 
             <Image
                 Aspect="Fill"
-                Source="luanova.png"
+                Source="ceuzul.jpg"
                 VerticalOptions="StartAndExpand" />
 
             <Image
                 Aspect="Fill"
-                Source="luanova.png"
+                Source="ceuzul.jpg"
                 VerticalOptions="StartAndExpand" />
         </HorizontalStackLayout>
 
@@ -67,20 +67,20 @@
 
 
             <Image
-                Margin="0,400,0,0"
+                HeightRequest="80"
                 Aspect="Fill"
-                Source="fundocerto.png"
+                Source="grama.png"
                 VerticalOptions="EndAndExpand" />
 
             <Image
-                Margin="0,400,0,0"
+                 HeightRequest="80"
                 Aspect="Fill"
-                Source="fundocerto.png"
+                Source="grama.png"
                 VerticalOptions="EndAndExpand" />
             <Image
-                Margin="0,400,0,0"
+                HeightRequest="80"
                 Aspect="Fill"
-                Source="fundocerto.png"
+                Source="grama.png"
                 VerticalOptions="EndAndExpand" />
 
         </HorizontalStackLayout>

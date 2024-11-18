@@ -2,9 +2,9 @@ using FFImageLoading.Maui;
 
 public class Animation
 {
-    protected List<String> AnimationOne = new List<String>();
-    protected List<String> AnimationTwo = new List<String>();
-    protected List<String> AnimationThree = new List<String>();
+    protected List<String> Animation01 = new List<String>();
+    protected List<String> Animation02 = new List<String>();
+    protected List<String> Animation03 = new List<String>();
     protected List<String> AnimationDead = new List<String>();
     public bool Loop = true;
     protected int AnimationTadalla = 1;
@@ -16,41 +16,48 @@ public class Animation
     {
         ImageView = imagem;
     }
+    
     public void Stop()
     {
         Brush = true;
     }
+    
     public void Play()
     {
         Brush = false;
     }
+    
     public void SetAnimationTadalla(int A)
     {
         AnimationTadalla = A;
     }
+   
     public void Drawn()
     {
         if (Brush)
             return;
         string NomeArquivo = "";
         int AnimationHeigth = 0;
+        
         if (AnimationTadalla == 1)
         {
-            NomeArquivo = AnimationOne[MainFrame];
-            AnimationHeigth = AnimationOne.Count;
+            NomeArquivo = Animation01[MainFrame];
+            AnimationHeigth = Animation01.Count;
         }
         else if (AnimationTadalla == 2)
         {
-            NomeArquivo = AnimationTwo[MainFrame];
-            AnimationHeigth = AnimationTwo.Count;
+            NomeArquivo = Animation02[MainFrame];
+            AnimationHeigth = Animation02.Count;
         }
         else if (AnimationTadalla == 3)
         {
-            NomeArquivo = AnimationThree[MainFrame];
-            AnimationHeigth = AnimationThree.Count;
+            NomeArquivo = Animation03[MainFrame];
+            AnimationHeigth = Animation03.Count;
         }
+       
         ImageView.Source = ImageSource.FromFile(NomeArquivo);
         MainFrame++;
+       
         if (MainFrame >= AnimationHeigth)
         {
             if (Loop)
