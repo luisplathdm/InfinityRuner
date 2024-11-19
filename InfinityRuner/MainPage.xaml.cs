@@ -1,19 +1,24 @@
 ﻿using InfinityRunner;
+using FFImageLoading.Maui;
 
 namespace InfinityRuner;
 
 public partial class MainPage : ContentPage
 {
-	//Atributos//
-	//  *
-	//  *
-	//  *     cobrinha
-	//  *     
-	//  *
-	//  *
-	//  <>
 
+//			    **
+//			   **
+//		     **     cobrinha
+//		     **     
+//			   **
+//			    **
+//			    <..>
+//			     /
+	
+	
 	//------------------------------------------------------------------------//
+   
+    //Atributos//
 
 	bool Isdead = false;
 	// se está morto
@@ -31,7 +36,7 @@ public partial class MainPage : ContentPage
 
 	const int TimeToFrame = 25;
 	//fps
-	const int JumpingPower = 8;
+	const int JumpingPower = 42;
 	// aqui a gente diz quanro persionagem sobe  em cada clique
 
 	const int MaxtimeJumping = 6;
@@ -43,7 +48,7 @@ public partial class MainPage : ContentPage
 	const int MintimeJumping = 4;
 	// e aqui tempo minimo
 
-	const int GravityPower = 6;
+	const int GravityPower = 3;
 	// aqui a força com que ele cai no chão
 
 	//------------------------------------------------------------------------//
@@ -83,6 +88,8 @@ public partial class MainPage : ContentPage
 	Jogador jogador;
 	//estou declarando para que de certo 
 
+	protected CachedImageView ImageView;
+
 	//------------------------------------------------------------------------//
 
 	public MainPage()
@@ -99,6 +106,7 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		FixScreenSize(w, h);
 		CalculateSpeed(w);
+	   
 	}
 
 	//------------------------------------------------------------------------//
@@ -111,6 +119,7 @@ public partial class MainPage : ContentPage
 
 		else if
 		(jogador.GetY() >= 0)
+		jogador.SetY(0);
 
 		{
 			jogador.SetY(0);
@@ -122,7 +131,7 @@ public partial class MainPage : ContentPage
 	void AplicaPulo()
 	{
 		IsOnFloor = false;
-		if (Isjumping && TimeJumping >= MaxtimeJumping)
+		if (Isjumping && TimeJumping >= MaxTimeInAir)
 		{
 			Isjumping = false;
 			IsOnAir = false;
@@ -141,7 +150,9 @@ public partial class MainPage : ContentPage
 			TimeJumping++;
 		}
 		else if (IsOnAir)
+		{
 			TimeInAir++;
+		}
 	}
 
 	//------------------------------------------------------------------------//
@@ -164,8 +175,8 @@ public partial class MainPage : ContentPage
 		foreach (var Layertwo in HSLayerTwo.Children)
 			(Layertwo as Image).WidthRequest = w;
 
-		foreach (var ALayerthre in HSLayerThree.Children)
-			(ALayerthre as Image).WidthRequest = w;
+		foreach (var Layerthre in HSLayerThree.Children)
+			(Layerthre as Image).WidthRequest = w;
 
 		foreach (var LayerDoChão in HSLayerPrimalfloor.Children)
 			(LayerDoChão as Image).WidthRequest = w;
@@ -192,16 +203,22 @@ public partial class MainPage : ContentPage
 	async Task Desenhar()
 	{
 		while (!Isdead)
+		{
+			ManageScenes();
+
 			if (!Isjumping && !IsOnAir)
 			{
 				ManageGravity();
 				jogador.Drawn();
-				ManageScenes();
+		
 			}
 			else
-				AplicaPulo();
 
-		await Task.Delay(TimeToFrame);
+         	AplicaPulo();
+			
+			await Task.Delay(TimeToFrame);
+		}
+		
 	}
 
 	//------------------------------------------------------------------------//
@@ -218,16 +235,16 @@ public partial class MainPage : ContentPage
 	void ManageScenes()
 	{
 		MoveScene();
-		ManageScene(HSLayerOne);
-		ManageScene(HSLayerTwo);
-		ManageScene(HSLayerThree);
-		ManageScene(HSLayerPrimalfloor);
+		GerenciaScene(HSLayerOne);
+		GerenciaScene(HSLayerTwo);
+		GerenciaScene(HSLayerThree);
+		GerenciaScene(HSLayerPrimalfloor);
 	}
 
 
 	//------------------------------------------------------------------------//
 
-	void ManageScene(HorizontalStackLayout HSL)
+	void GerenciaScene(HorizontalStackLayout HSL)
 	{
 		var view = (HSL.Children.First() as Image);
 		if (view.WidthRequest + HSL.TranslationX < 0)
@@ -243,8 +260,19 @@ public partial class MainPage : ContentPage
 	{
 		if(IsOnFloor)
 		  Isjumping = true;
+		  TimeJumping = 0;
 	}
 
 	//------------------------------------------------------------------------//
 }
 
+//		░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+//		█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+//		█░██░██░██░██░██░██░██░██░██░░░░░░░░░░█
+//		█░██░██░██░██░██░██░██░██░██░░░░░░░░░░█
+//		█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+//		░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+//		░░█░░░░█▀▀▀█░█▀▀█░█▀▀▄░▀█▀░█▄░░█░█▀▀█░░
+//		░░█░░░░█░░░█░█▄▄█░█░░█░░█░░█░█░█░█░▄▄░░
+//		░░█▄▄█░█▄▄▄█░█░░█░█▄▄▀░▄█▄░█░░▀█░█▄▄█░░
+//		░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

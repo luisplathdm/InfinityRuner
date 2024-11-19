@@ -8,6 +8,13 @@
     Shell.NavBarIsVisible="False">
 
     <Grid>
+
+
+      <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnGridTapped"/>
+        </Grid.GestureRecognizers>
+
+
         <HorizontalStackLayout x:Name="HSLayerOne">
             <Image
                 Aspect="Fill"
@@ -63,9 +70,8 @@
 
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
-
-
+     
+     <HorizontalStackLayout x:Name="HSLayerPrimalfloor">
             <Image
                 HeightRequest="80"
                 Aspect="Fill"
@@ -85,15 +91,16 @@
 
         </HorizontalStackLayout>
 
-        <ffimageloading:CachedImageView
+       <ffimageloading:CachedImageView
             x:Name="imgJogador"
             CacheDuration="365"
-            WidthRequest="80"
+            WidthRequest="200"
             VerticalOptions="End"
-            HorizontalOptions="Center"
-            HeightRequest="80"
-           BackgroundColor="Red"
+            Margin="10,0,0,58"
+            HorizontalOptions="Start"
+            HeightRequest="200"
             CacheType="All" />
+            
     </Grid>
 
 </ContentPage>
