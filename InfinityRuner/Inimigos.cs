@@ -5,9 +5,9 @@ public class Inimigos
     Inimigo atual = null;
     double minX = 0;
 
-    public Inimigos (double A)
+    public Inimigos (double a)
     {
-        minX = A;
+        minX = a;
     }
     public void Add(Inimigo a)
     {
@@ -27,7 +27,7 @@ public class Inimigos
         {
             Iniciar();
             var r = Random.Shared.Next(0, inimigos.Count);
-            atual = inimigos[r];
+            atual = inimigos [r];
         }
     }
     public void Desenha(int veloc)

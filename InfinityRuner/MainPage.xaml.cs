@@ -36,19 +36,19 @@ public partial class MainPage : ContentPage
 
 	const int TimeToFrame = 25;
 	//fps
-	const int JumpingPower = 42;
+	const int JumpingPower = 35;
 	// aqui a gente diz quanro persionagem sobe  em cada clique
 
-	const int MaxtimeJumping = 6;
+	const int MaxtimeJumping = 10;
 	//aqui a gente declara o tempo maximo que ele pode ficar em cada clique 
 
-	const int MaxTimeInAir = 4;
+	const int MaxTimeInAir = 10;
 	//tempo no ar que se pode deixar
 
-	const int MintimeJumping = 4;
+	const int MintimeJumping = 10;
 	// e aqui tempo minimo
 
-	const int GravityPower = 3;
+	const int GravityPower = 80;
 	// aqui a força com que ele cai no chão
 
 	//------------------------------------------------------------------------//
@@ -76,10 +76,13 @@ public partial class MainPage : ContentPage
 	//velocidade do personagen que atualmente
 	//nem está aparecendo 
 
-	int TimeJumping = 0;
+	int VillainSpeed = 0;
+	// velocidade do vilão
+
+	int TimeJumping = 10;
 	// Aqui a gente vai dizer quando ele estiver pulando
 
-	int TimeInAir = 0;
+	int TimeInAir = 20;
 	// quando ele pulo, o personagen, el fica um leve tempo
 	//flutuando e é isso que esse atributo vai fazer para a gente
 
@@ -108,6 +111,11 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		FixScreenSize(w, h);
 		CalculateSpeed(w);
+		inimigos = new Inimigos (-w);
+		inimigos.Add(new Inimigo(imgInimigo1));
+		inimigos.Add(new Inimigo(imgInimigo2));
+		inimigos.Add(new Inimigo(imgInimigo3));
+		inimigos.Add(new Inimigo(imgInimigo4));
 	   
 	}
 
@@ -115,13 +123,10 @@ public partial class MainPage : ContentPage
 
 	void ManageGravity()
 	{
-		if
-		(jogador.GetY() < 0)
+		if (jogador.GetY() < 0)
 			jogador.MoveY(GravityPower);
 
-		else if
-		(jogador.GetY() >= 0)
-		jogador.SetY(0);
+		else if (jogador.GetY() >= 0)
 
 		{
 			jogador.SetY(0);
@@ -163,6 +168,7 @@ public partial class MainPage : ContentPage
 		base.OnAppearing();
 		Desenhar();
 		jogador.Drawn();
+		
 		//Aqui é oque faz o cenarrio e talvz
 		//o personagem apaeceranddno
 	}
@@ -199,6 +205,7 @@ public partial class MainPage : ContentPage
 		SpeedThree = (int)(w * 0.008);
 		PrimalFloorSpeed = (int)(w * 0.01);
 		CharacterSpeed = (int)(w * 0.012);
+		VillainSpeed = (int)(w * 0.012);
 	}
 
 	//------------------------------------------------------------------------//
@@ -208,7 +215,7 @@ public partial class MainPage : ContentPage
 		{
 			ManageScenes();
 			if (inimigos != null)
-				inimigos.Desenha(velocidade);
+				inimigos.Desenha(VillainSpeed);
 
 			if (!Isjumping && !IsOnAir)
 			{
