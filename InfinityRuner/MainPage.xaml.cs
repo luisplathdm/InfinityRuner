@@ -87,6 +87,8 @@ public partial class MainPage : ContentPage
 
 	Jogador jogador;
 	//estou declarando para que de certo 
+	Inimigos inimigos;
+	//mesma coisa que do player
 
 	protected CachedImageView ImageView;
 
@@ -205,6 +207,8 @@ public partial class MainPage : ContentPage
 		while (!Isdead)
 		{
 			ManageScenes();
+			if (inimigos != null)
+				inimigos.Desenha(velocidade);
 
 			if (!Isjumping && !IsOnAir)
 			{

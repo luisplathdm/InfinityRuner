@@ -2,7 +2,6 @@ namespace InfinityRuner;
 public class Inimigo
 {
     Image ImageView;
-
     public Inimigo(Image A)
     {
         ImageView = A;
